@@ -2,6 +2,8 @@ FROM debian:sid-slim
 WORKDIR /app
 COPY src . 
 RUN apt update
-RUN apt install golang -y
-CMD ["go", "run", "main.go"]
+RUN apt install python3 -y
+RUN apt install python3-pip -y
+RUN pip3 install flask --break-system-packages
+CMD ["flask", "--app", "src/app.y", run"]
 EXPOSE 2000
